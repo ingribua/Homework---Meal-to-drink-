@@ -79,7 +79,22 @@ Don't forget encodeURIComponent()
 If no cocktails found, fetch random
 */
 function fetchCocktailByDrinkIngredient(drinkIngredient) {
-    
+     const encode = encodeURIComponent(drinkIngredient || "cola"); //Will encode and make it URL safe.
+    const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${encode}`;
+  
+
+    return fetch(url) //fetching data from the cocktail DB
+      .then(response => response.json())
+      .then(data => {
+        const drinks = data.drinks; //variable for the drinks inside the API/data for data.drinks - the drinks objects 
+
+        if (!drinks) { //a check if cocktail is not found
+          return fetchRandomCocktail()
+        }
+        
+      })
+
+
 }
 
 /*
@@ -92,7 +107,7 @@ function fetchRandomCocktail() {
       .then(response => response.json())
       .then(data => {
         console.log("Raw data:", data); /*Is this needed?*/
-        return data.drinks[0]; /* Random drink */
+        return data.drinks[0]; /* Random drink in the array of drinks */
       })
 }
 
