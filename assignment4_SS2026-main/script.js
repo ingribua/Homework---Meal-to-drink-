@@ -79,7 +79,7 @@ Don't forget encodeURIComponent()
 If no cocktails found, fetch random
 */
 function fetchCocktailByDrinkIngredient(drinkIngredient) {
-    // Fill in
+    
 }
 
 /*
@@ -87,7 +87,13 @@ Fetch a Random Cocktail (backup in case nothing is found by the search)
 Returns a Promise that resolves to cocktail object
 */
 function fetchRandomCocktail() {
-    // Fill in
+    const url="https://www.thecocktaildb.com/api/json/v1/1/random.php" /*Variable that consist of the API/URL*/;
+    fetch(url) /*Fetch function for getting the cocktail drink from the API*/
+      .then(response => response.json())
+      .then(data => {
+        console.log("Raw data:", data); /*Is this needed?*/
+        return data.drinks[0]; /* Random drink */
+      })
 }
 
 /*
