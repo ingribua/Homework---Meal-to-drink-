@@ -79,7 +79,7 @@ Don't forget encodeURIComponent()
 If no cocktails found, fetch random
 */
 function fetchCocktailByDrinkIngredient(drinkIngredient) {
-     const encode = encodeURIComponent(drinkIngredient || "cola"); //Will encode and make it URL safe.
+    const encode = encodeURIComponent(drinkIngredient || "cola"); //Will encode and make it URL safe.
     const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${encode}`;
   
 
@@ -89,13 +89,13 @@ function fetchCocktailByDrinkIngredient(drinkIngredient) {
         const drinks = data.drinks; //variable for the drinks inside the API/data for data.drinks - the drinks objects 
 
         if (!drinks) { //a check if cocktail is not found
-          return fetchRandomCocktail()
+          return fetchRandomCocktail();
         }
+
+        return data.drink[0];
         
       })
-
-
-}
+    }
 
 /*
 Fetch a Random Cocktail (backup in case nothing is found by the search)
@@ -103,7 +103,7 @@ Returns a Promise that resolves to cocktail object
 */
 function fetchRandomCocktail() {
     const url="https://www.thecocktaildb.com/api/json/v1/1/random.php" /*Variable that consist of the API/URL*/;
-    fetch(url) /*Fetch function for getting the cocktail drink from the API*/
+    return fetch(url) /*Fetch function for getting the cocktail drink from the API*/
       .then(response => response.json())
       .then(data => {
         console.log("Raw data:", data); /*Is this needed?*/
@@ -115,7 +115,26 @@ function fetchRandomCocktail() {
 Display Cocktail Data in the DOM
 */
 function displayCocktailData(cocktail) {
-    // Fill in
+    const name = document.getElementById("cocktail-name");
+    const img = document.getElementById("cocktail-image");
+    const ingredientsList = document.getElementById("cocktail-ingredients");
+    ingredientsList.innerHTML = ""; // empty
+
+    name.textContent = cocktail.strDrink;
+    img.src = cocktail.strDrinkThumb;
+    img.alt = cocktail.strDrink;
+
+    //finding ALL the ingredients and display them: 
+    for (const key in cocktail) {
+        // Check if the key starts with "strIngredient"
+        if (key.startsWith("strIngredient") && cocktail[key]) {
+            const li = document.createElement("li");
+            li.textContent = cocktail[key];
+            ingredientsList.appendChild(li);
+        }
+    }
+
+    return ingredientsList;
 }
 
 /*
