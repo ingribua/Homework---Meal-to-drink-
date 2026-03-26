@@ -29,6 +29,8 @@ const mealCategoryToCocktailIngredient = {
        - Fetch matching (or random) cocktail
        - Display cocktail
 */
+
+/*
 function init() {
   fetchRandomMeal()
     .then((meal) => {
@@ -43,6 +45,7 @@ function init() {
       console.error("Error:", error);
     });
 }
+*/
 
 /*
  Fetch a Random Meal from TheMealDB
@@ -92,7 +95,7 @@ function fetchCocktailByDrinkIngredient(drinkIngredient) {
           return fetchRandomCocktail();
         }
 
-        return data.drink[0];
+        return data.drinks[0];
         
       })
     }
@@ -127,14 +130,23 @@ function displayCocktailData(cocktail) {
     //finding ALL the ingredients and display them: 
     for (const key in cocktail) {
         // Check if the key starts with "strIngredient"
-        if (key.startsWith("strIngredient") && cocktail[key]) {
-            const li = document.createElement("li");
+        if (key.startsWith("strIngredient") && cocktail[key]) { //check if the key starts with strIngredient and if the cocktail key has a value 
+            const li = document.createElement("li"); //then we create a list element, li. 
             li.textContent = cocktail[key];
             ingredientsList.appendChild(li);
         }
     }
 
     return ingredientsList;
+}
+//testing, my part, the cocktails
+function init() {
+  fetchCocktailByDrinkIngredient("vodka")
+    .then(cocktail => {
+      console.log(cocktail);
+      displayCocktailData(cocktail);
+    })
+    .catch(err => console.error(err));
 }
 
 /*
