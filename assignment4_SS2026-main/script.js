@@ -30,7 +30,7 @@ const mealCategoryToCocktailIngredient = {
        - Display cocktail
 */
 
-/*
+
 function init() {
   fetchRandomMeal()
     .then((meal) => {
@@ -45,7 +45,7 @@ function init() {
       console.error("Error:", error);
     });
 }
-*/
+
 
 /*
  Fetch a Random Meal from TheMealDB
@@ -140,7 +140,7 @@ function displayCocktailData(cocktail) {
     return ingredientsList;
 }
 //testing, my part, the cocktails
-function init() {
+function initTwo() {
   fetchCocktailByDrinkIngredient("vodka")
     .then(cocktail => {
       console.log(cocktail);
