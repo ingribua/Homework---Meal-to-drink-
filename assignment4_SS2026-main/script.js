@@ -139,7 +139,7 @@ function displayCocktailData(cocktail) {
 
     return ingredientsList;
 }
-//testing, my part, the cocktails
+//testing, my part, the cocktails, 
 function initTwo() {
   fetchCocktailByDrinkIngredient("vodka")
     .then(cocktail => {
@@ -152,4 +152,4 @@ function initTwo() {
 /*
 Call init() when the page loads
 */
-window.onload = init;
+window.onload = initTwo; // remember to change this to init for testing the whole project

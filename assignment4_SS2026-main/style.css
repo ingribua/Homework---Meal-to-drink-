@@ -4,7 +4,16 @@ body {
   grid-template-rows: 100px auto;
   font-family: sans-serif;
   margin: 20px;
+  padding:1rem;
+  gap: 20px;
+  background-color: #E8DBB3;
+  
 }
+
+#title, .meal, .coctail,h3,h4,h2{
+  color:#CE2626;
+}
+
 #title {
   grid-column: span 2;
   text-align: center;
@@ -15,10 +24,51 @@ body {
   padding: 15px;
   margin-bottom: 20px;
   border-radius: 8px;
+  background-color: #FFFDEB;
 }
+
+.meal{
+  padding-right: 1rem;
+
+}
+
+.cocktail{
+  padding-left: 1rem;
+
+}
+
 .meal img,
 .cocktail img {
-  max-width: 250px;
-  display: block;
+  max-width: 400px;
   margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
 }
+
+#flex-title{
+  display:flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap:1rem;
+}
+
+#cocktail-ingredients{
+  display: flex;
+  flex-direction: row;
+  gap: 10px; /* spacing between items */
+  list-style: none; /* optional: removes bullets */
+  padding: 0; /* optional: removes default padding */
+  color:#CE2626
+  
+
+}
+
+#cocktail-ingredients li{
+  border: 1px solid #971c1c;
+  border-radius:8px;
+  padding:0.2rem;
+
+}
+
+
