@@ -66,12 +66,13 @@ Receives a meal object with fields like:
   strMeal, strMealThumb, strCategory, strInstructions,
   strIngredientX, strMeasureX, etc.
 */
+function displayMealData(meal) {
 document.getElementById("meal-container").innerHTML = `
     <h3>${meal.strMeal}</h3>
     <img src="${meal.strMealThumb}" width="100">
     <p><h4>Category:</h4> ${meal.strCategory}</p>
     <p><h4>Instructions:</h4> ${meal.strInstructions}</p>
-  `;
+  `;}
 
 /*
 Convert MealDB Category to a TheCocktailDB Spirit
