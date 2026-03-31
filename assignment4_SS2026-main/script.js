@@ -51,9 +51,14 @@ function init() {
  Fetch a Random Meal from TheMealDB
  Returns a Promise that resolves with the meal object
  */
-function fetchRandomMeal() {
-    // Fill in
+function fetchRandomMeal(){
+return fetch(url)
+.then(response => response.json())
+.then(data =>{console.log(data); 
+  const meal=data.meals;
+  return meal[0];})
 }
+
 
 /*
 Display Meal Data in the DOM
@@ -61,9 +66,12 @@ Receives a meal object with fields like:
   strMeal, strMealThumb, strCategory, strInstructions,
   strIngredientX, strMeasureX, etc.
 */
-function displayMealData(meal) {
-    // Fill in
-}
+document.getElementById("meal-container").innerHTML = `
+    <h3>${meal.strMeal}</h3>
+    <img src="${meal.strMealThumb}" width="100">
+    <p><h4>Category:</h4> ${meal.strCategory}</p>
+    <p><h4>Instructions:</h4> ${meal.strInstructions}</p>
+  `;
 
 /*
 Convert MealDB Category to a TheCocktailDB Spirit
