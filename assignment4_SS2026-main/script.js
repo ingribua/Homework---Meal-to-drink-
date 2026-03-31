@@ -69,10 +69,10 @@ Receives a meal object with fields like:
 */
 function displayMealData(meal) {
 document.getElementById("meal-container").innerHTML = `
-    <h3>${meal.strMeal}</h3>
-    <img src="${meal.strMealThumb}" width="100">
-    <p><h4>Category:</h4> ${meal.strCategory}</p>
-    <p><h4>Instructions:</h4> ${meal.strInstructions}</p>
+    <h2>Meal:</h2><h3>${meal.strMeal}</h3>
+    <img src="${meal.strMealThumb}" width="400">
+    <h4>Category:</h4> <p>${meal.strCategory}</p>
+    <h4>Instructions:</h4> <p> ${meal.strInstructions}</p>
   `;}
 
 /*
@@ -162,4 +162,4 @@ function initTwo() {
 /*
 Call init() when the page loads
 */
-window.onload = initTwo; // remember to change this to init for testing the whole project
+window.onload = init; // remember to change this to init for testing the whole project
