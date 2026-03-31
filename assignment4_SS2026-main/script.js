@@ -51,6 +51,7 @@ function init() {
  Fetch a Random Meal from TheMealDB
  Returns a Promise that resolves with the meal object
  */
+const url="https://www.themealdb.com/api/json/v1/1/random.php"
 function fetchRandomMeal(){
 return fetch(url)
 .then(response => response.json())
